@@ -28,3 +28,6 @@ img{
   z-index: 10;
   position: relative;   
 }
+ul {
+  list-style-type: none;
+}
