@@ -16,6 +16,7 @@ body, html{
   margin:0;
   padding:0;
   background:black;
+  color: greenyellow;
 }
 img{
   z-index: 1;
@@ -26,4 +27,7 @@ img{
 .form-div{
   z-index: 10;
   position: relative;   
+}
+.t{
+  speed:750;
 }
