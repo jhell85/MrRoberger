@@ -47,8 +47,15 @@ git clone {link to repository}
 
 |                          Behavoir                          |       Input        |       Output       |
 | :--------------------------------------------------------: | :----------------: | :----------------: |
-|    The program takes in input and console.log a 'click'    |     'any word'     |      'click'       |
-| The program takes in any words and console logs the output | 'learning to code' | 'learning to code' |
+|    The program will take an inputted number from a user and return a range counting up to that number    |     '4'     |      '0, 1, 2, 3, 4'       |
+| The program will replace all numbers containing a 1 with "Beep" | '1' | '0, Beep' |
+| The program will replace all numbers containing a 2 with "Boop" | '2' | '0, Beep, Boop' |
+| The program will replace all numbers containing a 1 with "Beep" | '3' | '0, Beep, Boop, Won't you be my neighbor?' |
+
+- _These rules are written in order of precedence_
+  - 12 returns "Boop"
+  - 23 returns "Won't you be my neighbor"
+
 
 ## Support
 
