@@ -27,10 +27,10 @@ Mac & linux
 cd ~/Desktop
 ```
 
-3.  in terminal type '_git clone {link to repository}_ '
+3.  in terminal type '_git clone https://github.com/jhell85/MrRoberger.git_ '
 
 ```sh
-git clone {link to repository}
+git clone https://github.com/jhell85/MrRoberger.git
 ```
 
 4. navigate to the new folder that was created on your desk
