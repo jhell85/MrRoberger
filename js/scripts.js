@@ -14,20 +14,17 @@ function checkNumber(numberArray, number) {
   let two = false;
   for (let i = 0; i < numberArray.length; i++) {
     intNumber = parseInt(numberArray[i]);
-    console.log(
-      `number:${number}: i:${i}  numberArray.length:${numberArray.length} two:${two}`
-    );
     if (intNumber === 3) {
-      return `<li>${number}: Won't you be my neighbor?</li>`;
+      return `<div class="text-left">${number}: Won't you be my neighbor?</div>`;
     } else if (intNumber === 2 && two === false) {
-      mutatedNumber = `<li>${number}: Boop!</li>`;
+      mutatedNumber = `<div class="text-left">${number}: Boop!</div>`;
       two = true;
     } else if (intNumber === 1 && two === false) {
-      mutatedNumber = `<li>${number}: Beep!</li>`;
+      mutatedNumber = `<div class="text-left">${number}: Beep!</div>`;
     }
     if (numberArray.length === i + 1) {
       if (!mutatedNumber) {
-        return `<li>${number}</li>`;
+        return `<div class="text-left">${number}</div>`;
       } else {
         return mutatedNumber;
       }
@@ -36,21 +33,42 @@ function checkNumber(numberArray, number) {
 }
 
 // ----------FrontEnd -----------
-$(document).ready(function() {
-  $("form").submit(function(event) {
+$(document).ready(function () {
+  $("form").submit(function (event) {
     event.preventDefault();
     let number = $("input").val();
-    $(".form-div").fadeOut(3000);
+    $(".form-div").fadeOut(2000);
     $("img").fadeOut(2000);
     robotArray = numberCounter(number);
-    printText(robotArray);
+
+    addColumns(robotArray, number);
   });
 });
 
-function printText(robotArray) {
-  robotString = `<ins>2</ins>`
-  robotArray.forEach(element => {
-    robotString += element;
+function addColumns(array, number) {
+  let columns = Math.ceil(number / 25);
+  let counter = 1;
+  while (counter < columns + 1) {
+    if (counter === 1) {
+      let columnedArray = array.slice(0, 26);
+      array.splice(0, 26);
+      printText(columnedArray, counter);
+    } else {
+      let columnedArray = array.slice(0, 25);
+      array.splice(0, 25);
+      printText(columnedArray, counter)
+    }
+    counter++;
+  }
+}
+
+function printText(array, number) {
+  $("#list").append(`<div id="column${number}" class="col col-md-3"></div>`);
+  console.log(array);
+
+  let stringArray = "";
+  array.forEach((element) => {
+    stringArray += element;
   });
-  $("#list").t(robotString);
+  $(`#column${number}`).t(stringArray);
 }
